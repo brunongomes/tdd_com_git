@@ -6,6 +6,9 @@ public class Garrafa {
     private int volume;
 
     public Garrafa(int capacidade, int volume){
+        if (capacidade <= 0) {
+            throw new IllegalArgumentException("A capacidade não pode ser negativa ou zero.");
+        }
         this.capacidade = capacidade; 
         this.volume = volume; 
     }

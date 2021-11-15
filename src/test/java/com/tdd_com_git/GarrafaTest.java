@@ -216,4 +216,40 @@ public class GarrafaTest {
 
         assertEquals(Garrafa.ACABOU, garrafa.getSituacao());
     }
+
+    @Test
+    public void retiraUmVolume() {
+        int capacidade = 500;
+        int volume = 300;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeRetirar = 200;
+        garrafa.retira(qtdeRetirar);
+
+        assertEquals(volume + qtdeRetirar, garrafa.getVolume());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void tentaRetirarUmValorNegativo() {
+        int capacidade = 500;
+        int volume = 100;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeRetirar = -100;
+        garrafa.retira(qtdeRetirar);
+
+        fail("Você não pode retirar um valor negativo");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void tentaRetirarUmValorZero() {
+        int capacidade = 500;
+        int volume = 100;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeRetirar = 0;
+        garrafa.retira(qtdeRetirar);
+
+        fail("Você não pode retirar um valor zero.");
+    }
 }

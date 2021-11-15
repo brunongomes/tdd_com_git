@@ -61,4 +61,11 @@ public class Garrafa {
 
         return ACABOU;
     }
+
+    void retira(int qtdeRetirar) {
+        if (qtdeRetirar <= 0) {
+            throw new IllegalArgumentException("Não é possível retirar quantidade negativa.");
+        }
+        this.volume += qtdeRetirar;
+    }
 }

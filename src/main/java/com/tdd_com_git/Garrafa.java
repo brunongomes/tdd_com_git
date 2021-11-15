@@ -29,4 +29,11 @@ public class Garrafa {
     public int getVolume(){
         return volume;
     }
+
+    void abasteca(int qtdeAbastecimento) {
+        if (qtdeAbastecimento <= 0) {
+            throw new IllegalArgumentException("Não é possível abastecer quantidade negativa.");
+        }
+        this.volume += qtdeAbastecimento;
+    }
 }

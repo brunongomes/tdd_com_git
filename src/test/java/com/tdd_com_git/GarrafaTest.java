@@ -78,4 +78,52 @@ public class GarrafaTest {
 
         assertEquals(garrafa.getVolume(), garrafa.getCapacidade());
     }
+
+    @Test
+    public void abasteceUmVolume() {
+        int capacidade = 1000;
+        int volume = 700;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeAbastecimento = 100;
+        garrafa.abasteca(qtdeAbastecimento);
+
+        assertEquals(volume + qtdeAbastecimento, garrafa.getVolume());
+    }
+
+    @Test
+    public void abasteceUmVolume2() {
+        int capacidade = 500;
+        int volume = 100;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeAbastecimento = 300;
+        garrafa.abasteca(qtdeAbastecimento);
+
+        assertEquals(volume + qtdeAbastecimento, garrafa.getVolume());
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void tentaAbasteceUmValorNegativo() {
+        int capacidade = 500;
+        int volume = 100;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeAbastecimento = -100;
+        garrafa.abasteca(qtdeAbastecimento);
+
+        fail("Você não pode abastecer um valor negativo");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void tentaAbasteceUmValorZero() {
+        int capacidade = 500;
+        int volume = 100;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        int qtdeAbastecimento = 0;
+        garrafa.abasteca(qtdeAbastecimento);
+
+        fail("Você não pode abastecer um valor zero.");
+    }
 }

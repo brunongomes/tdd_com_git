@@ -126,4 +126,94 @@ public class GarrafaTest {
 
         fail("Você não pode abastecer um valor zero.");
     }
+
+    @Test
+    public void verificaPorcentagemTest() {
+        int capacidade = 100;
+        int volume = 90;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(90, garrafa.getPorcentagem());
+    }
+
+    @Test
+    public void verificaPorcentagem2Test() {
+        int capacidade = 100;
+        int volume = 75;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(75, garrafa.getPorcentagem());
+    }
+
+    @Test
+    public void verificaPorcentagem3Test() {
+        int capacidade = 389;
+        int volume = 50;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(12, garrafa.getPorcentagem());
+    }
+
+    @Test
+    public void verificaSeAGarrafaEstaCheiaTest() {
+        int capacidade = 100;
+        int volume = 90;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.CHEIA, garrafa.getSituacao());
+    }
+
+    @Test
+    public void verificaSeAGarrafaEstaCheia2Test() {
+        int capacidade = 100;
+        int volume = 71;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.CHEIA, garrafa.getSituacao());
+    }
+
+    @Test
+    public void verificaSeAGarrafaEstaMeioCheiaTest() {
+        int capacidade = 100;
+        int volume = 60;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.MEIO_CHEIA, garrafa.getSituacao());
+    }
+
+    @Test
+    public void verificaSeAGarrafaEstaMeioCheia2Test() {
+        int capacidade = 100;
+        int volume = 50;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.MEIO_CHEIA, garrafa.getSituacao());
+    }
+
+    @Test
+    public void verificaSeAGarrafaEstAcabandoTest() {
+        int capacidade = 100;
+        int volume = 40;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.ACABANDO, garrafa.getSituacao());
+    }
+
+    @Test
+    public void verificaSeAGarrafaPodeFazerMaisCafe() {
+        int capacidade = 100;
+        int volume = 20;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.FAZER_MAIS, garrafa.getSituacao());
+    }
+
+    @Test
+    public void verificaSeAGarrafaAcabouCafe() {
+        int capacidade = 100;
+        int volume = 5;
+        Garrafa garrafa = new Garrafa(capacidade, volume);
+
+        assertEquals(Garrafa.ACABOU, garrafa.getSituacao());
+    }
 }

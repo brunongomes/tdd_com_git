@@ -36,4 +36,29 @@ public class Garrafa {
         }
         this.volume += qtdeAbastecimento;
     }
+
+    public int getPorcentagem() {
+        return getVolume() * 100 / getCapacidade();
+    }
+
+    public String getSituacao() {
+        int porcentagem = getPorcentagem();
+        if (porcentagem >= 70) {
+            return CHEIA;
+        }
+
+        if (porcentagem >= 50) {
+            return MEIO_CHEIA;
+        }
+
+        if (porcentagem >= 30) {
+            return ACABANDO;
+        }
+
+        if (porcentagem >= 10) {
+            return FAZER_MAIS;
+        }
+
+        return ACABOU;
+    }
 }
